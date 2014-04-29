@@ -26,3 +26,43 @@
 .table-noborder>thead>tr>th,  .table-noborder>thead>tr>td,.table-bordered>thead>tr>td, .table-noborder>tbody>tr>th, .table-noborder>tfoot>tr>th,  .table-noborder>tbody>tr>td, .table-noborder>tfoot>tr>td {
     border: 1px   #ddd;
 }
+
+
+.custom-form header {
+    margin: 0px;
+    padding: 10px 14px 0;;
+}
+
+.custom-form  {
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.custom-form section {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.custom-form fieldset{
+    padding: 10px 14px 5px;
+}
+
+.custom-form .lastRow{
+    margin-bottom: 0px;
+}
+
+
+
+.custom-label {
+    float: left;
+    width: 25%;
+    text-align: right;
+    white-space: nowrap;
+    color: #808080;
+}
+
+.custom-view {
+    margin-left: 30%;
+    padding: 0 10px;
+    word-wrap: break-word;
+}

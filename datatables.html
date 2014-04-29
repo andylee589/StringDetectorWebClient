@@ -260,7 +260,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                                <tr>
+                                                    <td colspan="4">
 
+
+
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
 
@@ -272,6 +278,7 @@
 
                             </div>
                             <!-- end widget -->
+
 
 
                         </article>
@@ -291,11 +298,106 @@
 		<!-- END MAIN PANEL -->
 
         <!-- Hide Divs-->
-        <div class ="hideddd" >
+        <div class ="hide" >
             <!--EXPAND ROW-->
-            <div >
-                <label>dddd</label>
+            <!-- widget div-->
+            <div  id="expand-job-row-">
+                <!-- widget content -->
+                <div class="widget-body no-padding">
+
+                    <form id="project-info-form-" class="smart-form custom-form" novalidate="novalidate">
+                        <header>
+                            Project Info
+                            <span class="widget-icon " id ="expand-project-info-icon-" > <a href="#" title="expand"> <i class="fa fa-plus"></i></a></span>
+                            <span class="widget-icon " id ="collapse-project-info-icon-" style="display: none"> <a href="#" title="collapse"> <i class="fa fa-minus"></i> </a> </span>
+                            <span class="widget-icon " id ="edit-project-info-icon-">  <a href="#" title="edit"> <i class="fa fa-edit"></i> </a></span>
+                            <span class="widget-icon " id ="save-project-info-icon-" style="display: none"> <a href="#" title="save">  <i class="fa fa-save"></i> </a></span>
+                        </header>
+
+                        <fieldset style="display: none;">
+                            <div class="row" id ="edit-project-info-" style="display: none;">
+                                <section class="col col-3 col-md-offset-3 lastRow" >
+                                    <label class="input"> <i class="icon-prepend fa fa-key"></i>
+                                        <input type="text" id="editProjectName" name="projectName" placeholder="Project name">
+                                    </label>
+                                </section>
+                                <section class="col col-3 lastRow">
+                                    <label class="input"> <i class="icon-prepend fa fa-folder"></i>
+                                        <input type="text" id="editSourcePath" name="sourcePath" placeholder="Source Path">
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="row" id ="view-project-info-">
+                                <section class="col col-3 col-md-offset-3 lastRow">
+                                    <div class="custom-label  ">Project Name:</div>
+                                    <div class="custom-view" id="viewProjectName">Bug Tracker</div>
+                                </section>
+                                <section class="col col-3 lastRow">
+                                    <div class="custom-label  ">Source Path:</div>
+                                    <div class="custom-view"  id="viewSourcePath">/BugTracker/src</div>
+                                </section>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <form id="project-configuration-form-" class="smart-form custom-form" novalidate="novalidate">
+                        <header>
+                            Configuration
+                            <span class="widget-icon " id ="expand-project-config-icon-" > <a href="#" title="expand"><i class="fa fa-plus"></i></a> </span>
+                            <span class="widget-icon " id ="collapse-project-config-icon-" style="display: none"> <a href="#" title="collapse"><i class="fa fa-minus"></i></a> </span>
+                            <span class="widget-icon" id ="edit-project-config-icon-"> <a href="#" title="edit"><i class="fa fa-edit"></i> </a></span>
+                            <span class="widget-icon" id ="upload-project-config-icon-"> <a href="#" title="upload"><i class="fa fa-upload"></i></a> </span>
+                        </header>
+
+                        <fieldset style="display: none;">
+                            <div class="row">
+                                <section class="lastRow">
+                                    <label class="label">Content</label>
+                                    <label class="textarea state-disabled">
+                                        <textarea rows="5" class="custom-scroll" id="project-config" name ="configuration" disabled="disabled">
+
+                                        </textarea>
+                                    </label>
+                                    <div class="note">
+                                        <strong>Note:</strong> The configuration should contain source directory.
+                                    </div>
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+                    <form id="project-report-form-" class="smart-form custom-form" novalidate="novalidate">
+                        <header>
+                            Report
+                            <span class="widget-icon" id ="expand-project-report-icon-">  <a href="#" title="expand"><i class="fa fa-plus"></i> </a></span>
+                            <span class="widget-icon" id ="collapse-project-report-icon-" style="display: none"><a href="#" title="collapse"> <i class="fa fa-minus"></i> </a></span>
+                            <span class="widget-icon" id ="download-project-report-icon-"> <a href="#" title="download"><i class="fa fa-download"></i></a> </span>
+                        </header>
+
+                        <fieldset style="display: none;">
+                            <div class="row">
+                                <section class="lastRow">
+                                    <label class="label">Content</label>
+                                    <label class="textarea state-disabled">
+                                        <textarea rows="8" class="custom-scroll" id="project-report" disabled="disabled">
+
+                                        </textarea>
+                                    </label>
+                                    <div class="note">
+                                        <strong>Note:</strong> Only part of the report is showed , download to see the total content.
+                                    </div>
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+                </div>
+                <!-- end widget content -->
+
             </div>
+            <!-- end widget div -->
             <!--END EXPAND ROW-->
         </div>
         <!-- END Hide Divs-->
@@ -379,95 +481,7 @@
 		<script src="js/plugin/datatables/DT_bootstrap.js"></script>
 
 
-		<script type="text/javascript">
-
-		// DO NOT REMOVE : GLOBAL FUNCTIONS!
-        // gloable varaiable
-        var  oTable;
-
-       /*initialize the datatable*/
-        function loadJobs(jobs){
-            // use the fake data
-            var  jobRecords=[];
-
-            var actionStr = '<div class="btn-group" data-toggle="buttons"><label class="btn btn-default btn-xs active"><input type="radio" name="style-a1" id="style-a1"> <i class="fa fa-play"></i></label><label class="btn btn-default btn-xs"><input type="radio" name="style-a2" id="style-a2"> <i class="fa fa-pause"></i></label><label class="btn btn-default btn-xs"><input type="radio" name="style-a2" id="style-a3"> <i class="fa fa-stop"></i></label></div>';
-           for(var i =0;i<3;i++){
-               var record = [];
-               record.push("000001");
-               record.push("BugTracker");
-               record.push("Created");
-               record.push(actionStr);
-               jobRecords.push(record);
-            }
-
-            oTable= $('#dt_basic').dataTable({
-                "sPaginationType" : "bootstrap_full",
-                "aaData": jobRecords
-            });
-        }
-
-        function  expandableRowClick(){
-            var nTr = $(this)[0];
-            if ( oTable.fnIsOpen(nTr) )
-            {
-                /* This row is already open - close it */
-                // this.src = "../examples_support/details_open.png";
-                oTable.fnClose( nTr );
-            }
-            else
-            {
-                /* Open this row */
-                //this.src = "../examples_support/details_close.png";
-                oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'Job Number' );
-            }
-        }
-
-        /* Formating function for row details */
-        function fnFormatDetails ( oTable, nTr )
-        {
-            var aData = oTable.fnGetData( nTr );
-            var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-            sOut += '<tr><td>Rendering engine:</td><td>'+aData[0]+' '+aData[1]+'</td></tr>';
-            sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
-            sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
-            sOut += '</table>';
-
-            return sOut;
-        }
-
-
-		$(document).ready(function() {
-
-			pageSetUp();
-
-			/*
-			 * BASIC
-			 */
-
-            $.ajax({
-                type : "get",
-                url : "/api/jobs",
-                data : "",
-                cache :false,
-                success : function(data) {
-                    loadJobs(data);
-                },
-                error : function(XMLHttpRequest,
-                                 textStatus, errorThrown) {
-                }
-            });
-            // fake the data
-            //loadJobs(null);
-            /*the expand and collapse row */
-            $(document).delegate('#dt_basic tbody tr','click',expandableRowClick);
-
-			/* END BASIC */
-
-
-
-		})
-
-		</script>
+		<script src="js/custom.js"></script>
 
 		<!-- Your GOOGLE ANALYTICS CODE Below -->
 		<script type="text/javascript">
