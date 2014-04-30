@@ -260,13 +260,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td colspan="4">
 
-
-
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table>
 
@@ -318,23 +312,23 @@
                             <div class="row" id ="edit-project-info-" style="display: none;">
                                 <section class="col col-3 col-md-offset-3 lastRow" >
                                     <label class="input"> <i class="icon-prepend fa fa-key"></i>
-                                        <input type="text" id="editProjectName" name="projectName" placeholder="Project name">
+                                        <input type="text" id="editProjectName-" name="projectName" placeholder="Project name">
                                     </label>
                                 </section>
                                 <section class="col col-3 lastRow">
                                     <label class="input"> <i class="icon-prepend fa fa-folder"></i>
-                                        <input type="text" id="editSourcePath" name="sourcePath" placeholder="Source Path">
+                                        <input type="text" id="editSourcePath-" name="sourcePath" placeholder="Source Path">
                                     </label>
                                 </section>
                             </div>
                             <div class="row" id ="view-project-info-">
                                 <section class="col col-3 col-md-offset-3 lastRow">
                                     <div class="custom-label  ">Project Name:</div>
-                                    <div class="custom-view" id="viewProjectName">Bug Tracker</div>
+                                    <div class="custom-view" id="viewProjectName-">Bug Tracker</div>
                                 </section>
                                 <section class="col col-3 lastRow">
                                     <div class="custom-label  ">Source Path:</div>
-                                    <div class="custom-view"  id="viewSourcePath">/BugTracker/src</div>
+                                    <div class="custom-view"  id="viewSourcePath-">/BugTracker/src</div>
                                 </section>
                             </div>
                         </fieldset>
@@ -346,6 +340,7 @@
                             <span class="widget-icon " id ="expand-project-config-icon-" > <a href="#" title="expand"><i class="fa fa-plus"></i></a> </span>
                             <span class="widget-icon " id ="collapse-project-config-icon-" style="display: none"> <a href="#" title="collapse"><i class="fa fa-minus"></i></a> </span>
                             <span class="widget-icon" id ="edit-project-config-icon-"> <a href="#" title="edit"><i class="fa fa-edit"></i> </a></span>
+                            <span class="widget-icon" id ="save-project-config-icon-" style="display: none"> <a href="#" title="save"><i class="fa fa-save"></i> </a></span>
                             <span class="widget-icon" id ="upload-project-config-icon-"> <a href="#" title="upload"><i class="fa fa-upload"></i></a> </span>
                         </header>
 
@@ -354,9 +349,9 @@
                                 <section class="lastRow">
                                     <label class="label">Content</label>
                                     <label class="textarea state-disabled">
-                                        <textarea rows="5" class="custom-scroll" id="project-config" name ="configuration" disabled="disabled">
-
+                                        <textarea rows="5" class="custom-scroll" id="project-config-" name ="configuration" disabled="disabled">
                                         </textarea>
+                                        <input type="file" id="project-configuration-file-"   style="display: none"/>
                                     </label>
                                     <div class="note">
                                         <strong>Note:</strong> The configuration should contain source directory.
@@ -372,6 +367,7 @@
                             Report
                             <span class="widget-icon" id ="expand-project-report-icon-">  <a href="#" title="expand"><i class="fa fa-plus"></i> </a></span>
                             <span class="widget-icon" id ="collapse-project-report-icon-" style="display: none"><a href="#" title="collapse"> <i class="fa fa-minus"></i> </a></span>
+                            <span class="widget-icon" id ="refresh-project-report-icon-"> <a href="#" title="refresh"><i class="fa fa-refresh"></i></a> </span>
                             <span class="widget-icon" id ="download-project-report-icon-"> <a href="#" title="download"><i class="fa fa-download"></i></a> </span>
                         </header>
 
@@ -380,7 +376,7 @@
                                 <section class="lastRow">
                                     <label class="label">Content</label>
                                     <label class="textarea state-disabled">
-                                        <textarea rows="8" class="custom-scroll" id="project-report" disabled="disabled">
+                                        <textarea rows="8" class="custom-scroll" id="project-report-" disabled="disabled">
 
                                         </textarea>
                                     </label>
@@ -449,6 +445,10 @@
 
 		<!-- JQUERY SELECT2 INPUT -->
 		<script src="js/plugin/select2/select2.min.js"></script>
+        <!-- JQUERY FIlE Download -->
+        <script src="js/plugin/jquery-filedownload/jquery.fileDownload.js"></script>
+        <!-- JQUERY TIMER  -->
+        <script src="js/plugin/jquery-timer/jquery.timer.js"></script>
 
 		<!-- JQUERY UI + Bootstrap Slider -->
 		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
