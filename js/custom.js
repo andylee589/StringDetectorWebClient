@@ -156,10 +156,11 @@ function jobStartClick(){
     $.ajax({
         type : "post",
         cache: false,
-        url : "http://localhost:59503/api/jobs/"+jobNumber+"/task",
-        data : null,
-        dataType : "json",
-        cache :false,
+        url: "../api/jobs/" + jobNumber + "/task",
+        data: null,
+        dataType: "json",
+        contentType: "application/json",
+        cache: false,
         success : function(data) {
             // update jobs map
             jobsMap[jobNumber] = data;
@@ -301,7 +302,7 @@ function saveProjectInfoClick(){
     $.ajax({
         type : "put",
         cache: false,
-        url : "http://localhost:59503/api/jobs/"+jobNumber,
+        url: "../api/jobs/" + jobNumber,
         data : JSON.stringify(putData),
         dataType : "json",
         contentType:"application/json; charset=utf-8",
@@ -383,7 +384,7 @@ function saveProjectConfigClick(){
     $.ajax({
         type : "put",
         cache: false,
-        url : "http://localhost:59503/api/jobs/"+jobNumber+"/configuration",
+        url: "../api/jobs/" + jobNumber + "/configuration",
         data : JSON.stringify(putData),
         dataType : "json",
         contentType:"application/json; charset=utf-8",
@@ -453,7 +454,7 @@ function expandProjectReportClick(){
 function downloadProjectReportClick(){
     var spiltArray = $(this).attr("id").split("-");
     var jobNumber = spiltArray[spiltArray.length-1];
-    $.fileDownload("http://localhost:59503/api/jobs/"+jobNumber+"/report/file", {
+    $.fileDownload("../api/jobs/" + jobNumber + "/report/file", {
         successCallback: function (url) {
 
         },
@@ -509,7 +510,7 @@ function refreshProjectReport(jobNumber,nTr,continusRefreshing){
     $.ajax({
         type : "get",
         cache: false,
-        url : "http://localhost:59503/api/jobs/"+jobNumber+"/report/text",
+        url: "../api/jobs/" + jobNumber + "/report/text",
         data : null,
         dataType : "json",
         cache :false,
@@ -517,7 +518,8 @@ function refreshProjectReport(jobNumber,nTr,continusRefreshing){
             // update jobs map
             jobsMap[jobNumber].Report = data;
             var reportContent =data.ReportContent;
-            $(projectReport+jobNumber).val(reportContent);
+            $(projectReport + jobNumber).val(reportContent);
+            $(projectReport + jobNumber).scrollTop($(projectReport + jobNumber)[0].scrollHeight);
         },
         error : function(XMLHttpRequest,
                          textStatus, errorThrown) {
@@ -541,7 +543,7 @@ function refreshProjectStatus(jobNumber,nTr){
     $.ajax({
         type : "get",
         cache: false,
-        url : "http://localhost:59503/api/jobs/"+jobNumber+"/state",
+        url: "../api/jobs/" + jobNumber + "/state",
         data : null,
         dataType : "json",
         cache :false,
@@ -554,13 +556,13 @@ function refreshProjectStatus(jobNumber,nTr){
             aData=transferToJobRecord(jobsMap[jobNumber]);
             oTable.fnUpdate(aData,nTr);
 
-            var status =data.JobStatus;
+
+            var status = data.JobStatus; 
             if(status==jobBeginLaunch||status==jobRunning){
                 refreshProjectReport(jobNumber,nTr,true);
-            }else {
-                refreshProjectReport(jobNumber,nTr,false);
+            } else {
                 timerStop(jobNumber);
-
+                refreshProjectReport(jobNumber,nTr,false);
             }
 
 
@@ -688,7 +690,7 @@ $(document).ready(function() {
     $.ajax({
         type : "get",
         cache: false,
-        url : "http://localhost:59503/api/jobs",
+        url: "../api/jobs",
         data : "",
         cache :false,
         success : function(data) {
