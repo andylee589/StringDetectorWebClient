@@ -55,7 +55,7 @@
 
 .custom-label {
     float: left;
-    width: 25%;
+    width: 20%;
     text-align: right;
     white-space: nowrap;
     color: #808080;
@@ -63,7 +63,7 @@
 
 .custom-view {
     margin-left: 30%;
-    padding: 0 10px;
+    padding: 0 20px;
     word-wrap: break-word;
 }
 

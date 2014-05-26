@@ -683,6 +683,9 @@ $(document).ready(function() {
 
     pageSetUp();
 
+    $.root_.removeClassPrefix('smart-style')
+            .addClass('smart-style-3');
+
     /*
      * BASIC
      */
